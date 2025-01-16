@@ -69,10 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-My-New-Post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/01/16/My-New-Post/" class="article-date">
-  <time class="dt-published" datetime="2025-01-16T14:11:15.000Z" itemprop="datePublished">2025-01-16</time>
+    <a href="/2025/01/16/test/" class="article-date">
+  <time class="dt-published" datetime="2025-01-16T14:43:08.000Z" itemprop="datePublished">2025-01-16</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/01/16/My-New-Post/">My New Post</a>
+      <a class="p-name article-title" href="/2025/01/16/test/">test</a>
     </h1>
   
 
@@ -95,7 +95,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/01/16/My-New-Post/" data-id="cm5zflj530002kw7m6yxm772t" data-title="My New Post" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/01/16/test/" data-id="cm5zfxuew0000ks7m8r0133ll" data-title="test" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -107,45 +107,51 @@
 
 
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-Samba-Server" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/01/16/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2025-01-16T13:57:01.926Z" itemprop="datePublished">2025-01-16</time>
+    <a href="/2025/01/16/Samba-Server/" class="article-date">
+  <time class="dt-published" datetime="2025-01-16T14:37:26.451Z" itemprop="datePublished">2025-01-16</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/01/16/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+        <h1 id="Samba服务器的配置"><a href="#Samba服务器的配置" class="headerlink" title="Samba服务器的配置"></a>Samba服务器的配置</h1><h4 id="一、服务器介绍"><a href="#一、服务器介绍" class="headerlink" title="一、服务器介绍"></a>一、服务器介绍</h4><p>Samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机&#x2F;服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。通过设置“NetBIOS over TCP&#x2F;IP”使得Samba不但能与局域网络主机分享资源，还能与全世界的电脑分享资源。</p>
+<h4 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h4><table>
+<thead>
+<tr>
+<th>操作系统</th>
+<th>网络模式</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>服务端:openEuler</td>
+<td>主机模式</td>
+<td>10.203.0.3</td>
+</tr>
+<tr>
+<td>客户端:openEuler</td>
+<td>主机模式</td>
+<td>10.203.0.4</td>
+</tr>
+</tbody></table>
+<h4 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h4><p>1.安装Samba和Samba客户端</p>
+<p>2.配置Samba服务端</p>
+<p>3.配置Samba客户端来进行连接测试</p>
+<h4 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h4>
         
           <p class="article-more-link">
-            <a href="/2025/01/16/hello-world/#more">Read More</a>
+            <a href="/2025/01/16/Samba-Server/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/01/16/hello-world/" data-id="cm5zflj4y0000kw7m8sr053ex" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/01/16/Samba-Server/" data-id="cm5zfv6lc0001mg7mhkbzg563" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -188,11 +194,11 @@
       <ul>
         
           <li>
-            <a href="/2025/01/16/My-New-Post/">My New Post</a>
+            <a href="/2025/01/16/test/">test</a>
           </li>
         
           <li>
-            <a href="/2025/01/16/hello-world/">Hello World</a>
+            <a href="/2025/01/16/Samba-Server/">(no title)</a>
           </li>
         
       </ul>
