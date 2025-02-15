@@ -1,176 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<style>
-    p{
-        margin-top: 0 !important;
-        margin-bottom: 1rem !important;
-        font-size: 1.1rem;
-    }
-    figure{
-        margin: 0 !important;
-    }
-    pre{
-        padding: 0 !important;
-        margin-top: 0 !important;
-        margin-bottom: 1rem !important;
-    }
-
-    td{
-        padding: 0 !important;
-        margin-bottom: 1rem !important;
-    }
-    h1,h2,h3,h4,h5,h6{
-        margin-top: 0 !important;
-        margin-bottom: 1rem !important;
-    }
-</style>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luisitn&#39;s Blogs - </title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/tailwind.css">
-    <link rel="stylesheet" href="/css/highlight.css">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-<header class="bg-black text-hacker-white py-4 font-dos font-extrabold">
-    <div class="container mx-auto flex items-center justify-between space-x-8">
+<link rel="stylesheet" href="/styles/base.css">
+
     
-      <h1 class="text-2xl font-bold ml-[100px] md:ml-0 animate-pulse text-hacker-color1 md:mr-[20%]">
-        <a href="/" class="hover:text-white transition-colors select-none">
-          Luisitn&#39;s Blogs
-        </a>
-      </h1>
-  
-    <!-- 大屏幕 -->
-      <nav class="hidden md:block">
-        <ul class="flex space-x-6">
-          
-            <li>
-              <a href="/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                Luisitn&#39;s Blogs
-              </a>
-            </li>
-          
-            <li>
-              <a href="/archives" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                Archives
-              </a>
-            </li>
-          
-            <li>
-              <a href="/categories" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                Categories
-              </a>
-            </li>
-          
-            <li>
-              <a href="/tags" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                Tags
-              </a>
-            </li>
-          
-            <li>
-              <a href="/about" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                About
-              </a>
-            </li>
-          
-            <li>
-              <a href="/rss.xml" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                RSS
-              </a>
-            </li>
-          
-        </ul>
-      </nav>
-  
-      <!-- 小屏幕 -->
-      <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+<link rel="stylesheet" href="/styles/theme.css">
+
+    <link rel="shortcut icon" href="/">
+    
+    <title>Home - Luisitn's Blogs</title>
+    
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Luisitn's Blogs" type="application/atom+xml">
+</head>
+<body>
+    <div class="header-title">
+        <span class="header-light"></span>
+        <span class="header-light"></span>
+        <span class="header-light"></span>
+        <span>Luisitn's Blogs example.com<span>
     </div>
-  
-    <!-- 折叠菜单 -->
-    <nav id="mobile-menu" class="hidden bg-black">
-      <ul class="space-y-2 py-4 px-6">
+    <div class="container">
+        <ul class="nav">
         
-          <li>
-            <a href="/" class="block text-white hover:text-hacker-color1 transition-colors">
-              Luisitn&#39;s Blogs
-            </a>
-          </li>
+            <li><a href="/">Home</a></li>
         
-          <li>
-            <a href="/archives" class="block text-white hover:text-hacker-color1 transition-colors">
-              Archives
-            </a>
-          </li>
-        
-          <li>
-            <a href="/categories" class="block text-white hover:text-hacker-color1 transition-colors">
-              Categories
-            </a>
-          </li>
-        
-          <li>
-            <a href="/tags" class="block text-white hover:text-hacker-color1 transition-colors">
-              Tags
-            </a>
-          </li>
-        
-          <li>
-            <a href="/about" class="block text-white hover:text-hacker-color1 transition-colors">
-              About
-            </a>
-          </li>
-        
-          <li>
-            <a href="/rss.xml" class="block text-white hover:text-hacker-color1 transition-colors">
-              RSS
-            </a>
-          </li>
-        
-      </ul>
-    </nav>
-  
-    <!-- RSS Link -->
-    <link rel="alternate" type="application/rss+xml" title=" RSS" href="/rss.xml" />
-  </header>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/js/search.js"></script>
-  <script>
-        document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    menuToggle.addEventListener("click", () => {
-        if (mobileMenu.classList.contains("hidden")) {
-        mobileMenu.classList.remove("hidden");
-        } else {
-        mobileMenu.classList.add("hidden");
-        }
-    });
-    });
-
-  </script>
-  
-
-<meta name="generator" content="Hexo 7.3.0"></head>
-<body class="bg-black text-hacker-color3 container mx-auto">
-    <!-- 文章标题 -->
-    <h1 class="text-5xl text-hacker-color1 font-bold font-dos my-6 text-center"></h1>
-
-    <!-- 发布时间 -->
-    <p class="text-hacker-color3 text-center text-sm mb-4">
-        2025-01-18
-    </p>
-
-    <!-- 文章内容 -->
-    <div id="article-content" class="article-entry prose prose-invert mx-auto max-w-4xl leading-relaxed highlight">
-        <h1 id="DHCP服务器的配置"><a href="#DHCP服务器的配置" class="headerlink" title="DHCP服务器的配置"></a>DHCP服务器的配置</h1><h4 id="一、服务器介绍"><a href="#一、服务器介绍" class="headerlink" title="一、服务器介绍"></a>一、服务器介绍</h4><p>动态主机配置协议 DHCP（Dynamic Host Configuration Protocol，动态主机配置协议） 是 RFC 1541（已被 RFC 2131 取代）定义的标准协议，该协议允许服务器向客户端动态分配 IP 地址和配置信息。<br>DHCP协议支持C&#x2F;S（客户端&#x2F;服务器）结构，主要分为两部分：<br>1、DHCP客户端：通常为网络中的PC、打印机等终端设备，使用从DHCP服务器分配下来的IP信息，包括IP地址、DNS等。<br>2、DHCP服务器：所有的IP网络设定信息都由DHCP服务器集中管理，并处理客户端的DHCP请求。<br>DHCP采用UDP作为传输协议，客户端发送消息到DHCP服务器的的67号端口，服务器返回消息给客户端的68号端口。</p>
+        </ul>
+        <div class="content">
+            <div class="post-container">
+    <div class="post-header">
+        <span class="ui-tips">Title:</span>
+        <h1 class="ui-keyword post-title">(empty)</h1>
+        <span class="post-date">2025-01-18</span>
+    </div>
+    
+    
+    
+    <div class="post-content"><h1 id="DHCP服务器的配置"><a href="#DHCP服务器的配置" class="headerlink" title="DHCP服务器的配置"></a>DHCP服务器的配置</h1><h4 id="一、服务器介绍"><a href="#一、服务器介绍" class="headerlink" title="一、服务器介绍"></a>一、服务器介绍</h4><p>动态主机配置协议 DHCP（Dynamic Host Configuration Protocol，动态主机配置协议） 是 RFC 1541（已被 RFC 2131 取代）定义的标准协议，该协议允许服务器向客户端动态分配 IP 地址和配置信息。<br>DHCP协议支持C&#x2F;S（客户端&#x2F;服务器）结构，主要分为两部分：<br>1、DHCP客户端：通常为网络中的PC、打印机等终端设备，使用从DHCP服务器分配下来的IP信息，包括IP地址、DNS等。<br>2、DHCP服务器：所有的IP网络设定信息都由DHCP服务器集中管理，并处理客户端的DHCP请求。<br>DHCP采用UDP作为传输协议，客户端发送消息到DHCP服务器的的67号端口，服务器返回消息给客户端的68号端口。</p>
 <h4 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h4><table>
 <thead>
 <tr>
@@ -204,16 +73,11 @@
 
 <p>2.1：先熟悉一下自己vmare的网络环境，因为这个服务器和网络的关系特别大，就是网络里面的一种协议，所以熟悉提前熟悉网络环境很重要</p>
 <p>2.2：上面的实验环境中说过了服务端和客户端都是主机模式，所以先设置，都是在设置里面进行设置，Windows客户端也是以此类推</p>
-<p><img src="C:\Users\Luistin\AppData\Roaming\Typora\typora-user-images\image-20240708144646554.png" alt="image-20240708144646554"></p>
-<p><img src="C:\Users\Luistin\AppData\Roaming\Typora\typora-user-images\image-20240708144725772.png" alt="image-20240708144725772"></p>
-<p>2.3：都设置完了主机模式之后，将Vmware的主机模式自动分配DHCP功能关闭，不然会影响实验的成功性，子网IP和子网掩码一定要记住，最好配置和物理机一个网段，不然ssh可能连不上去，后面按照上面的网段来进行配置</p>
-<p><img src="C:\Users\Luistin\AppData\Roaming\Typora\typora-user-images\image-20240708145017329.png" alt="image-20240708145017329"></p>
-<p><img src="C:\Users\Luistin\AppData\Roaming\Typora\typora-user-images\image-20240708152156419.png" alt="image-20240708152156419"></p>
+<p>了主机模式之后，将Vmware的主机模式自动分配DHCP功能关闭，不然会影响实验的成功性，子网IP和子网掩码一定要记住，最好配置和物理机一个网段，不然ssh可能连不上去，后面按照上面的网段来进行配置</p>
 <p>2.4：先配置服务端的网卡，也就是openEuler系统的网卡，配置完了之后重启网卡</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line">TYPE=Ethernet</span><br><span class="line">PROXY_METHOD=none</span><br><span class="line">BROWSER_ONLY=no</span><br><span class="line">BOOTPROTO=static</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">IPV6_ADDR_GEN_MODE=eui64</span><br><span class="line">NAME=ens33</span><br><span class="line">UUID=bf8451d5-d52c-4a40-8c46-1bfe23e1dd8f</span><br><span class="line">DEVICE=ens33</span><br><span class="line">ONBOOT=yes</span><br><span class="line">IPADDR=10.203.0.3</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=10.203.0.1</span><br><span class="line">[root@localhost ~]# nmcli c reload ens33</span><br><span class="line">[root@localhost ~]# nmcli c up ens33</span><br><span class="line">连接已成功激活（D-Bus 活动路径：/org/freedesktop/NetworkManager/ActiveConnection/3）</span><br></pre></td></tr></table></figure>
 
 <p>2.5：然后配置客户端的网卡，也就是WindowsServer2016的网卡，设置为DHCP模式</p>
-<p><img src="C:\Users\Luistin\AppData\Roaming\Typora\typora-user-images\image-20240708150125986.png" alt="image-20240708150125986"></p>
 <p>2.6：配置完了之后可以发现WindowsServer2016出现了169.254.230.193的ip，这个就说明我们可以开始搭建dhcp服务给这个客户端分配ip地址了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator&gt;ipconfig</span><br><span class="line">Windows IP 配置</span><br><span class="line">以太网适配器 Ethernet0:</span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . :</span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::adaa:99c3:30ce:e6c1%3</span><br><span class="line">   自动配置 IPv4 地址  . . . . . . . : 169.254.230.193</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.0.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . :</span><br></pre></td></tr></table></figure>
 
@@ -226,26 +90,17 @@
 <p>3.3：测试客户端是否可以获取到dhcp，可以显示出test.com这些dhcp服务器的信息就可以证明实验成功了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator&gt;ipconfig /all</span><br><span class="line"></span><br><span class="line">以太网适配器 Ethernet0:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . : test.com</span><br><span class="line">   描述. . . . . . . . . . . . . . . : Intel(R) 82574L Gigabit Network Connection</span><br><span class="line">   物理地址. . . . . . . . . . . . . : 00-0C-29-0F-99-8C</span><br><span class="line">   DHCP 已启用 . . . . . . . . . . . : 是</span><br><span class="line">   自动配置已启用. . . . . . . . . . : 是</span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::adaa:99c3:30ce:e6c1%3(首选)</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 10.203.0.26(首选)</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.255.224</span><br><span class="line">   获得租约的时间  . . . . . . . . . : 2024年7月8日 15:33:15</span><br><span class="line">   租约过期的时间  . . . . . . . . . : 2024年7月8日 15:42:24</span><br><span class="line">   默认网关. . . . . . . . . . . . . : 10.203.0.1</span><br><span class="line">   DHCP 服务器 . . . . . . . . . . . : 10.203.0.3</span><br><span class="line">   DHCPv6 IAID . . . . . . . . . . . : 50334761</span><br><span class="line">   DHCPv6 客户端 DUID  . . . . . . . : 00-01-00-01-2D-E4-A1-C3-00-0C-29-0F-99-8C</span><br><span class="line">   DNS 服务器  . . . . . . . . . . . : 10.203.0.3</span><br><span class="line">   TCPIP 上的 NetBIOS  . . . . . . . : 已启用</span><br></pre></td></tr></table></figure>
 
+</div>
+</div>
 
+        </div>
+        <div class="footer">
+            
+            <p class="footer-copyright">
+                <span>Powered by <a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <span>Theme <a target="_blank" href="https://github.com/tinkink-co/hexo-theme-terminal">Terminal</a></span>
+            </p>
+        </div>
     </div>
-
-    <!-- 返回主页链接 -->
-    <div class="text-center my-8">
-        <a href="/" class="text-hacker-color1 underline hover:text-hacker-color2">← Back to Home</a>
-    </div>
-
-    <footer class="bg-black text-gray-400 py-4">
-    <div class="container mx-auto text-center">
-      <p>© <span id="current-year"></span>  John Doe 
-        <br> Powered by <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://github.com/m310ct/hexo-theme-hexploit">Hexpolit</a></p>
-    </div>
-  </footer>
-  
-  <script> 
-    document.getElementById("current-year").textContent = new Date().getFullYear();
-  </script>
-  
-
-
 </body>
 </html>

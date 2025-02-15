@@ -1,289 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luisitn&#39;s Blogs - Archives</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/tailwind.css">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-<header class="bg-black text-hacker-white py-4 font-dos font-extrabold">
-    <div class="container mx-auto flex items-center justify-between space-x-8">
+<link rel="stylesheet" href="/styles/base.css">
+
     
-      <h1 class="text-2xl font-bold ml-[100px] md:ml-0 animate-pulse text-hacker-color1 md:mr-[20%]">
-        <a href="/" class="hover:text-white transition-colors select-none">
-          Luisitn&#39;s Blogs
-        </a>
-      </h1>
-  
-    <!-- 大屏幕 -->
-      <nav class="hidden md:block">
-        <ul class="flex space-x-6">
-          
-            <li>
-              <a href="/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                Luisitn&#39;s Blogs
-              </a>
-            </li>
-          
-            <li>
-              <a href="/archives" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                Archives
-              </a>
-            </li>
-          
-            <li>
-              <a href="/categories" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                Categories
-              </a>
-            </li>
-          
-            <li>
-              <a href="/tags" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                Tags
-              </a>
-            </li>
-          
-            <li>
-              <a href="/about" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                About
-              </a>
-            </li>
-          
-            <li>
-              <a href="/rss.xml" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
-                RSS
-              </a>
-            </li>
-          
-        </ul>
-      </nav>
-  
-      <!-- 小屏幕 -->
-      <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+<link rel="stylesheet" href="/styles/theme.css">
+
+    <link rel="shortcut icon" href="/">
+    
+    <title>Home - Luisitn's Blogs</title>
+    
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Luisitn's Blogs" type="application/atom+xml">
+</head>
+<body>
+    <div class="header-title">
+        <span class="header-light"></span>
+        <span class="header-light"></span>
+        <span class="header-light"></span>
+        <span>Luisitn's Blogs example.com<span>
     </div>
-  
-    <!-- 折叠菜单 -->
-    <nav id="mobile-menu" class="hidden bg-black">
-      <ul class="space-y-2 py-4 px-6">
+    <div class="container">
+        <ul class="nav">
         
-          <li>
-            <a href="/" class="block text-white hover:text-hacker-color1 transition-colors">
-              Luisitn&#39;s Blogs
-            </a>
-          </li>
+            <li><a href="/">Home</a></li>
         
-          <li>
-            <a href="/archives" class="block text-white hover:text-hacker-color1 transition-colors">
-              Archives
-            </a>
-          </li>
-        
-          <li>
-            <a href="/categories" class="block text-white hover:text-hacker-color1 transition-colors">
-              Categories
-            </a>
-          </li>
-        
-          <li>
-            <a href="/tags" class="block text-white hover:text-hacker-color1 transition-colors">
-              Tags
-            </a>
-          </li>
-        
-          <li>
-            <a href="/about" class="block text-white hover:text-hacker-color1 transition-colors">
-              About
-            </a>
-          </li>
-        
-          <li>
-            <a href="/rss.xml" class="block text-white hover:text-hacker-color1 transition-colors">
-              RSS
-            </a>
-          </li>
-        
-      </ul>
-    </nav>
-  
-    <!-- RSS Link -->
-    <link rel="alternate" type="application/rss+xml" title=" RSS" href="/rss.xml" />
-  </header>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/js/search.js"></script>
-  <script>
-        document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    menuToggle.addEventListener("click", () => {
-        if (mobileMenu.classList.contains("hidden")) {
-        mobileMenu.classList.remove("hidden");
-        } else {
-        mobileMenu.classList.add("hidden");
-        }
-    });
-    });
-
-  </script>
-  
-
-<meta name="generator" content="Hexo 7.3.0"></head>
-<body class="bg-black container mx-auto">
-    <h1 class="text-4xl text-hacker-color1 font-bold font-dos">Archives</h1>
-    <hr class="w-full border-t-2 border-line-color border-dashed">
-    <div class="container mx-auto flex bg-black min-h-screen">
-        <div class="w-full">
+        </ul>
+        <div class="content">
             
+<div class="post-item">
+    <div class="post-header">
+        <span class="ui-tips post-index">1.</span>
+        <h2><a href="/2025/01/18/DHCP-Server/">#</a></h2>
+        <span class="post-date">2025-01-18</span>
+    </div>
+    <div class="post-content">
+        DHCP服务器的配置一、服务器介绍动态主机配置协议 DHCP（Dynamic Host Configuration Protocol，动态主机配置协议） 是 RFC 1541（已被 RFC 2131 取代）定义的标准协议，该协议允许服务器向客户端动态分配 IP 地址和配置信息。DHCP协议支持C&amp;#x2F;S（客户端&amp;#x2F;服务器）结构，主要分为两部分：1、DHCP客户端：通常为网络中的PC、打印机等终端设备，使用从DHCP服务器分配下来的IP信息，包括IP地址、DNS等。2、DHCP服务器：所有的IP网络设定信息都由DHCP服务器集中管理，并处理客户端的DHCP请求。DHCP采用UDP作为传输协议，客户端发送消息到DHCP服务器的的67号端口，服务器返回消息给客户端的68号端口。
+二、实验环境
 
-            <div class="archive-list text-lg mt-8">
-            
-                <section class="mb-6">
-                <h2 class="text-2xl font-bold text-hacker-color1 mb-4">2025</h2>
-                <ul class="ml-4">
-                    
-                    <li class="mb-2">
-                        <span class="text-hacker-color3 ">2025-01-18 >> </span>
-                        <a class="text-hacker-color1 hover:underline" href="/2025/01/18/DHCP-Server/"></a>
-                    </li>
-                    
-                    <li class="mb-2">
-                        <span class="text-hacker-color3 ">2025-01-16 >> </span>
-                        <a class="text-hacker-color1 hover:underline" href="/2025/01/16/Hello/">Hello!</a>
-                    </li>
-                    
-                </ul>
-                </section>
-            
-            </div>
+
+操作系统
+网络模式
+系统网络模式
+IP
+
+
+
+服务端:openEuler
+主机模式
+Static
+10.203.0.3
+
+
+客户端:Windows Server 2016
+主机模式
+DHCP
+DHCP分配
+
+
+三、实验内容1.下载DHCP服务
+2.网络环境的配置
+3.DHCP服务的配置
+四、实验步骤
+    </div>
+</div>
+
+<div class="post-item">
+    <div class="post-header">
+        <span class="ui-tips post-index">2.</span>
+        <h2><a href="/2025/01/16/Hello/">Hello!</a></h2>
+        <span class="post-date">2025-01-16</span>
+    </div>
+    <div class="post-content">
+        您好，我是Luisitn，我是一位网络安全技术、运维技术爱好者， 很高兴来到我的博客，大家一起交流学习，谢谢！
+Hello, I’m Luisitn. I’m an enthusiast of network security technology and operation and maintenance technology. I’m very glad to welcome you to my blog. Let’s communicate and learn from each other. Thank you!
+
+    </div>
+</div>
+
+
 
 
         </div>
-        
-    <div class="w-1/3 hidden md:block space-y-4 mt-8">
-      
-        
-          <!-- 搜索框 -->
-          <input type="text" id="search-input" placeholder="Search..." class="w-full p-2.5 text-lg mb-5 border-2 border-line-color rounded bg-black text-white placeholder-gray-400"/>
-          <div id="search-results"></div>
-        
-  
-        
-  
-        
-  
-        
-  
-        
-  
-      
-        
-  
-        
-          <!-- 公告栏 -->
-          <div class=" text-white p-4 rounded-md border-2 border-dashed border-line-color mb-4">
-            <h3 class="font-bold text-lg text-hacker-color1">Notice</h3>
-            <p class="mt-4">博客正在进行优化，敬请期待更多内容！</p>
-          </div>
-        
-  
-        
-  
-        
-  
-        
-  
-      
-        
-  
-        
-  
-        
-          <!-- 分类部分 -->
-          <h3 class="text-hacker-color1 font-bold text-lg">Categories</h3>
-          <div>
+        <div class="footer">
             
-            
-          </div>
-          <hr class="w-full border-t-2 border-line-color border-dashed">
-        
-  
-        
-  
-        
-  
-      
-        
-  
-        
-  
-        
-  
-        
-          <!-- 标签部分 -->
-          <h3 class="text-hacker-color1 font-bold text-lg">Tags</h3>
-          <div class="flex flex-wrap justify-start items-center">
-            
-            
-          </div>
-          <hr class="w-full border-t-2 border-line-color border-dashed">
-        
-  
-        
-  
-      
-        
-  
-        
-  
-        
-  
-        
-  
-        
-          <!-- 链接部分 -->
-          <h3 class="text-hacker-color1 font-bold text-lg">Links</h3>
-          <div>
-            
-              <a href="https://www.baidu.com" target="_blank" class="text-hacker-color3 hover:text-white">
-                百度
-              </a>
-              <br />
-            
-          </div>
-          <hr class="w-full border-t-2 border-line-color border-dashed">
-        
-  
-      
+            <p class="footer-copyright">
+                <span>Powered by <a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <span>Theme <a target="_blank" href="https://github.com/tinkink-co/hexo-theme-terminal">Terminal</a></span>
+            </p>
+        </div>
     </div>
-  
-  
-  
-  
-  
-
-
-
-
-
-
-    </div>
-    <footer class="bg-black text-gray-400 py-4">
-    <div class="container mx-auto text-center">
-      <p>© <span id="current-year"></span>  John Doe 
-        <br> Powered by <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://github.com/m310ct/hexo-theme-hexploit">Hexpolit</a></p>
-    </div>
-  </footer>
-  
-  <script> 
-    document.getElementById("current-year").textContent = new Date().getFullYear();
-  </script>
-  
-
 </body>
 </html>
