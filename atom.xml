@@ -3,11 +3,11 @@
   <title>Luisitn&#39;s Blogs</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://luistin.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://luistin.github.io/"/>
   <updated>2025-02-15T15:35:43.182Z</updated>
-  <id>http://example.com/</id>
+  <id>https://luistin.github.io/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title></title>
-    <link href="http://example.com/2025/01/18/DHCP-Server/"/>
-    <id>http://example.com/2025/01/18/DHCP-Server/</id>
+    <link href="https://luistin.github.io/2025/01/18/DHCP-Server/"/>
+    <id>https://luistin.github.io/2025/01/18/DHCP-Server/</id>
     <published>2025-01-18T12:53:07.994Z</published>
     <updated>2025-02-15T15:35:43.182Z</updated>
     
@@ -61,8 +61,8 @@
   
   <entry>
     <title>Hello!</title>
-    <link href="http://example.com/2025/01/16/Hello/"/>
-    <id>http://example.com/2025/01/16/Hello/</id>
+    <link href="https://luistin.github.io/2025/01/16/Hello/"/>
+    <id>https://luistin.github.io/2025/01/16/Hello/</id>
     <published>2025-01-16T14:43:08.000Z</published>
     <updated>2025-01-16T14:52:03.289Z</updated>
     
