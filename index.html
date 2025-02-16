@@ -124,6 +124,59 @@
 
 
   
+    <article id="post-Ubuntu22.04-DNS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/02/16/Ubuntu22.04-DNS/" class="article-date">
+  <time class="dt-published" datetime="2025-02-15T16:00:00.000Z" itemprop="datePublished">2025-02-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/02/16/Ubuntu22.04-DNS/">在乌班图上搭建DNS服务器教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-配置基础设置"><a href="#1-配置基础设置" class="headerlink" title="1. 配置基础设置"></a>1. 配置基础设置</h2><h3 id="修改主配置文件"><a href="#修改主配置文件" class="headerlink" title="修改主配置文件"></a>修改主配置文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/bind/named.conf.options</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>options</code> 块内添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">listen-on &#123; any; &#125;;</span><br><span class="line">allow-query &#123; any; &#125;;</span><br><span class="line">forwarders &#123;</span><br><span class="line">    8.8.8.8;</span><br><span class="line">    8.8.4.4;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建区域文件配置"><a href="#创建区域文件配置" class="headerlink" title="创建区域文件配置"></a>创建区域文件配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/bind/named.conf.local</span><br></pre></td></tr></table></figure>
+
+<p>添加以下内容（根据实际需求修改）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">zone &quot;example.com&quot; &#123;</span><br><span class="line">    type master;</span><br><span class="line">    file &quot;/etc/bind/db.example.com&quot;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">zone &quot;1.168.192.in-addr.arpa&quot; &#123;</span><br><span class="line">    type master;</span><br><span class="line">    file &quot;/etc/bind/db.192&quot;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-创建区域文件"><a href="#2-创建区域文件" class="headerlink" title="2. 创建区域文件"></a>2. 创建区域文件</h2>
+        
+          <p class="article-more-link">
+            <a href="/2025/02/16/Ubuntu22.04-DNS/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luistin.github.io/2025/02/16/Ubuntu22.04-DNS/" data-id="cm77gcw7i0000h87m1scwbw0f" data-title="在乌班图上搭建DNS服务器教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-DHCP-Server" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/01/19/DHCP-Server/" class="article-date">
@@ -270,6 +323,10 @@
         
           <li>
             <a href="/2025/02/16/Ubuntu22.04-Tomcat10/">在乌班图上搭建Tomcat教程</a>
+          </li>
+        
+          <li>
+            <a href="/2025/02/16/Ubuntu22.04-DNS/">在乌班图上搭建DNS服务器教程</a>
           </li>
         
           <li>

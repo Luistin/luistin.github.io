@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://luistin.github.io/2025/02/16/Ubuntu22.04-DNS/</loc>
+    
+    <lastmod>2025-02-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://luistin.github.io/2025/01/19/DHCP-Server/</loc>
     
     <lastmod>2025-02-16</lastmod>
