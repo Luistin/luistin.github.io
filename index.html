@@ -112,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://luistin.github.io/2025/02/16/Ubuntu22.04-DNS/" data-id="cm77gfavd0002z87mcfec1q6h" data-title="在乌班图上搭建DNS服务器教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://luistin.github.io/2025/02/16/Ubuntu22.04-DNS/" data-id="cm77kph3400032g7mcger7ehg" data-title="在乌班图上搭建DNS服务器教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -165,7 +165,59 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://luistin.github.io/2025/02/16/Ubuntu22.04-Tomcat10/" data-id="cm77gfavg0004z87m2sd22umd" data-title="在乌班图上搭建Tomcat教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://luistin.github.io/2025/02/16/Ubuntu22.04-Tomcat10/" data-id="cm77kph3400042g7m2alv5txb" data-title="在乌班图上搭建Tomcat教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Ubuntu22.04-Vsftpd" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/02/16/Ubuntu22.04-Vsftpd/" class="article-date">
+  <time class="dt-published" datetime="2025-02-15T16:00:00.000Z" itemprop="datePublished">2025-02-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/02/16/Ubuntu22.04-Vsftpd/">在 Ubuntu 22.04 手动搭建 vsftpd 服务器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-安装-vsftpd-软件包"><a href="#1-安装-vsftpd-软件包" class="headerlink" title="1. 安装 vsftpd 软件包"></a>1. 安装 vsftpd 软件包</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install vsftpd -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-备份原始配置文件"><a href="#2-备份原始配置文件" class="headerlink" title="2. 备份原始配置文件"></a>2. 备份原始配置文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-配置-vsftpd"><a href="#3-配置-vsftpd" class="headerlink" title="3. 配置 vsftpd"></a>3. 配置 vsftpd</h2><h3 id="修改主配置文件"><a href="#修改主配置文件" class="headerlink" title="修改主配置文件"></a>修改主配置文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/vsftpd.conf</span><br></pre></td></tr></table></figure>
+
+<p>保留以下核心参数（其他参数注释或删除）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">listen=YES</span><br><span class="line">listen_ipv6=NO</span><br><span class="line">anonymous_enable=NO</span><br><span class="line">local_enable=YES</span><br><span class="line">write_enable=YES</span><br><span class="line">local_umask=022</span><br><span class="line">dirmessage_enable=YES</span><br><span class="line">use_localtime=YES</span><br><span class="line">xferlog_enable=YES</span><br><span class="line">connect_from_port_20=YES</span><br><span class="line">chroot_local_user=YES</span><br><span class="line">secure_chroot_dir=/var/run/vsftpd/empty</span><br><span class="line">pam_service_name=vsftpd</span><br><span class="line">pasv_enable=YES</span><br><span class="line">pasv_min_port=40000</span><br><span class="line">pasv_max_port=50000</span><br><span class="line">user_sub_token=$USER</span><br><span class="line">local_root=/var/ftp/$USER</span><br><span class="line">userlist_enable=YES</span><br><span class="line">userlist_file=/etc/vsftpd.userlist</span><br><span class="line">userlist_deny=NO</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-创建专用用户"><a href="#4-创建专用用户" class="headerlink" title="4. 创建专用用户"></a>4. 创建专用用户</h2>
+        
+          <p class="article-more-link">
+            <a href="/2025/02/16/Ubuntu22.04-Vsftpd/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luistin.github.io/2025/02/16/Ubuntu22.04-Vsftpd/" data-id="cm77kq4910000ss7mby682bx9" data-title="在 Ubuntu 22.04 手动搭建 vsftpd 服务器" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -234,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://luistin.github.io/2025/01/19/DHCP-Server/" data-id="cm77gfavg0003z87me7y28x17" data-title="DHCP服务器的配置" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://luistin.github.io/2025/01/19/DHCP-Server/" data-id="cm77kph3300022g7mcfklfata" data-title="DHCP服务器的配置" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -279,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://luistin.github.io/2025/01/16/Hello/" data-id="cm77gfavb0001z87mg8dldim6" data-title="Hello!" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://luistin.github.io/2025/01/16/Hello/" data-id="cm77kph2z00012g7mecr5fhus" data-title="Hello!" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -327,6 +379,10 @@
         
           <li>
             <a href="/2025/02/16/Ubuntu22.04-Tomcat10/">在乌班图上搭建Tomcat教程</a>
+          </li>
+        
+          <li>
+            <a href="/2025/02/16/Ubuntu22.04-Vsftpd/">在 Ubuntu 22.04 手动搭建 vsftpd 服务器</a>
           </li>
         
           <li>
