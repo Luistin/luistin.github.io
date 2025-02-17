@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://luistin.github.io/2025/02/17/Linux%E5%8A%A0%E5%9B%BA/</loc>
+    
+    <lastmod>2025-02-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://luistin.github.io/2025/02/17/Kali%20Linux%20%E6%90%AD%E5%BB%BA%20Vulhub%20%E6%BC%8F%E6%B4%9E%E9%9D%B6%E5%9C%BA/</loc>
     
     <lastmod>2025-02-17</lastmod>
