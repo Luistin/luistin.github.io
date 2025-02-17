@@ -1,7 +1,75 @@
-<!DOCTYPE html><html lang="cn"><head><title>Kali Linux 搭建 Vulhub 漏洞靶场</title><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=0.5"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="manifest" href="/site.webmanifest"><link rel="stylesheet" href="/css/highlight/xcode.min.css"><link rel="stylesheet" href="/css/bootstrap/bootstrap-tooltips.css"><link rel="stylesheet" href="/css/post.css"><script src="/js/jquery.min.js"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
-</head><body><script>if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent)) {
-  document.body.classList.add('mobile')
-}</script><div><div class="inner"><h1>Kali Linux 搭建 Vulhub 漏洞靶场</h1><div class="time">2025-02-17</div><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 📦 环境准备</span></span><br><span class="line"><span class="section">### 系统要求</span></span><br><span class="line"><span class="bullet">-</span> Kali Linux 2023.x 或更新版本</span><br><span class="line"><span class="bullet">-</span> 推荐内存 ≥4GB</span><br><span class="line"><span class="bullet">-</span> 硬盘剩余空间 ≥20GB</span><br><span class="line"></span><br><span class="line"><span class="section">### 安装依赖工具</span></span><br><span class="line">sudo apt update &amp;&amp; sudo apt upgrade -y</span><br><span class="line">sudo apt install -y docker.io docker-compose git</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html>
+ <html lang="cn"> 
+<head>
+  <meta charset="utf-8">
+  
+  <title>Kali Linux 搭建 Vulhub 漏洞靶场 | </title>
+  <meta name="author" content="John Doe">
+
+  
+  <meta name="description" content="123456789## 📦 环境准备### 系统要求- Kali Linux 2023.x 或更新版本- 推荐内存 ≥4GB- 硬盘剩余空间 ≥20GB### 安装依赖工具sudo apt update &amp;amp;&amp;amp; sudo apt upgrade -ysudo apt install -y docker.io docker-compose git
+
+配置Docker权限123sudo systemctl enable --now dockersudo usermod -aG docker $USERnewgrp docker  # 刷新用户组
+
+🚀 Vulhub 部署流程1. 下载漏洞库12git clone https://github.com/vulhub/vulhub.gitcd vulhub
+
+2. 启动靶场环境（以 Tomcat CVE-2017-12615 为例）12cd tomcat/CVE-2017-12615docker-compose up -d
+
+3. 验证服务状态12docker ps | grep tomcat# 应显示端口映射 8080-&amp;gt;8080">
+  
+
+  
+    <link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="p-name title" itemprop="headline name">Kali Linux 搭建 Vulhub 漏洞靶场</h1>
+  
+
+    <time class="dt-published" datetime="2025-02-17T05:36:00.000Z">
+  <span class="day">17</span><span class="month">Feb</span>
+</time>
+  </header>
+  <div class="e-content entry-content">
+    
+      <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 📦 环境准备</span></span><br><span class="line"><span class="section">### 系统要求</span></span><br><span class="line"><span class="bullet">-</span> Kali Linux 2023.x 或更新版本</span><br><span class="line"><span class="bullet">-</span> 推荐内存 ≥4GB</span><br><span class="line"><span class="bullet">-</span> 硬盘剩余空间 ≥20GB</span><br><span class="line"></span><br><span class="line"><span class="section">### 安装依赖工具</span></span><br><span class="line">sudo apt update &amp;&amp; sudo apt upgrade -y</span><br><span class="line">sudo apt install -y docker.io docker-compose git</span><br></pre></td></tr></table></figure>
 
 <h3 id="配置Docker权限"><a href="#配置Docker权限" class="headerlink" title="配置Docker权限"></a>配置Docker权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now docker</span><br><span class="line"><span class="built_in">sudo</span> usermod -aG docker <span class="variable">$USER</span></span><br><span class="line">newgrp docker  <span class="comment"># 刷新用户组</span></span><br></pre></td></tr></table></figure>
 
@@ -56,7 +124,65 @@
 <blockquote>
 <p>💡 提示：所有漏洞测试完成后请执行 <code>docker-compose down</code> 释放资源</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[🔗 Vulhub 官方文档](https://vulhub.org/)</span><br><span class="line">[🔗 Docker 官方手册](https://docs.docker.com/)</span><br></pre></td></tr></table></figure></div></div></body><script src="/js/highlight.min.js"></script><script src="/js/main.js"></script><script src="/js/bootstrap/bootstrap.min.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script><script>window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXX');</script></html>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[🔗 Vulhub 官方文档](https://vulhub.org/)</span><br><span class="line">[🔗 Docker 官方手册](https://docs.docker.com/)</span><br></pre></td></tr></table></figure>
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+      
+
+    
+    
+  </div>
+  
+</article>
+</div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2025 John Doe
+  
+</p>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+
+<script src="/js/phasebeam.js"></script>
+
+</body>
+</html>

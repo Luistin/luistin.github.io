@@ -1,7 +1,77 @@
-<!DOCTYPE html><html lang="cn"><head><title>在Ubuntu 22.04上搭建DNS服务器教程</title><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=0.5"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="manifest" href="/site.webmanifest"><link rel="stylesheet" href="/css/highlight/xcode.min.css"><link rel="stylesheet" href="/css/bootstrap/bootstrap-tooltips.css"><link rel="stylesheet" href="/css/post.css"><script src="/js/jquery.min.js"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
-</head><body><script>if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent)) {
-  document.body.classList.add('mobile')
-}</script><div><div class="inner"><h1>在Ubuntu 22.04上搭建DNS服务器教程</h1><div class="time">2025-02-16</div><h2 id="1-配置基础设置"><a href="#1-配置基础设置" class="headerlink" title="1. 配置基础设置"></a>1. 配置基础设置</h2><h3 id="修改主配置文件"><a href="#修改主配置文件" class="headerlink" title="修改主配置文件"></a>修改主配置文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/bind/named.conf.options</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html>
+ <html lang="cn"> 
+<head>
+  <meta charset="utf-8">
+  
+  <title>在Ubuntu 22.04上搭建DNS服务器教程 | </title>
+  <meta name="author" content="John Doe">
+
+  
+  <meta name="description" content="1. 配置基础设置修改主配置文件1sudo nano /etc/bind/named.conf.options
+
+在 options 块内添加：
+123456listen-on &amp;#123; any; &amp;#125;;allow-query &amp;#123; any; &amp;#125;;forwarders &amp;#123;    8.8.8.8;    8.8.4.4;&amp;#125;;
+
+创建区域文件配置1sudo nano /etc/bind/named.conf.local
+
+添加以下内容（根据实际需求修改）：
+123456789zone &amp;quot;example.com&amp;quot; &amp;#123;    type master;    file &amp;quot;/etc/bind/db.example.com&amp;quot;;&amp;#125;;zone &amp;quot;1.168.192.in-addr.arpa&amp;quot; &amp;#123;    type master;    file &amp;quot;/etc/bind/db.192&amp;quot;;&amp;#125;;
+
+2. 创建区域文件">
+  
+
+  
+    <link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="p-name title" itemprop="headline name">在Ubuntu 22.04上搭建DNS服务器教程</h1>
+  
+
+    <time class="dt-published" datetime="2025-02-15T16:00:00.000Z">
+  <span class="day">16</span><span class="month">Feb</span>
+</time>
+  </header>
+  <div class="e-content entry-content">
+    
+      <h2 id="1-配置基础设置"><a href="#1-配置基础设置" class="headerlink" title="1. 配置基础设置"></a>1. 配置基础设置</h2><h3 id="修改主配置文件"><a href="#修改主配置文件" class="headerlink" title="修改主配置文件"></a>修改主配置文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/bind/named.conf.options</span><br></pre></td></tr></table></figure>
 
 <p>在 <code>options</code> 块内添加：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">listen-on &#123; any; &#125;;</span><br><span class="line">allow-query &#123; any; &#125;;</span><br><span class="line">forwarders &#123;</span><br><span class="line">    8.8.8.8;</span><br><span class="line">    8.8.4.4;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -35,7 +105,65 @@
 <li>检查文件权限：<code>/etc/bind/</code> 目录应属于 <code>root:bind</code></li>
 <li>完整日志查看：<code>tail -f /var/log/syslog | grep named</code></li>
 </ol>
-</div></div></body><script src="/js/highlight.min.js"></script><script src="/js/main.js"></script><script src="/js/bootstrap/bootstrap.min.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script><script>window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXX');</script></html>
+
+    
+    
+    <footer class="meta">
+      
+      
+      
+    </footer>
+    
+      
+
+    
+    
+  </div>
+  
+</article>
+</div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2025 John Doe
+  
+</p>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+<script>
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+
+<script src="/js/phasebeam.js"></script>
+
+</body>
+</html>
