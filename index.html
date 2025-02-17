@@ -1,511 +1,412 @@
 <!DOCTYPE html>
- <html lang="cn"> 
+<html lang="en">
+
+<!-- Head tag -->
 <head>
   <meta charset="utf-8">
-  
-  <title></title>
-  <meta name="author" content="John Doe">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/img/favicon.png">
 
   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
   
-    <link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
-  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css">
+
+
   
 <link rel="stylesheet" href="/css/style.css">
 
-  
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
   
-  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
+  <title></title>
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="null" type="application/atom+xml">
+</head>
+
 
 <body>
-  <header id="header" class="inner"><nav>
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-</nav></header>
-  <div id="content" class="inner">
-  <article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
   <header>
-    
+    <nav id="navbar" class="navbar fixed-nav scrolling-navbar">
+  <div class="container">
+    <div class="mark-wrapper">
+       
+      <div class="title-mark">Peomas</div>
+    </div>
   
-    <h1 class="title"><a href="/2025/02/17/Linux%E5%8A%A0%E5%9B%BA/">Linux 系统安全加固指南</a></h1>
+    <button id="menu-btn" class="btn menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu">
+      <div class="menu-icon"><span></span><span></span><span></span></div>
+    </button>
   
+    <div id="nav-menu" class="collapse menu-wrapper">
+      <ul>
+        
+          <li>
+            <a href="/">Home </a>
+          </li>
+        
+          <li>
+            <a href="/archives">Archives </a>
+          </li>
+        
+          <li>
+            <a href="/categories">Category </a>
+          </li>
+        
+          <li>
+            <a href="/tags">Tag </a>
+          </li>
+        
+          <li>
+            <a href="/about">About </a>
+          </li>
+        
+        <li class="search-icon">
+          <button class="btn" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search">
+            <i class="fas fa-search"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-    <time class="dt-published" datetime="2025-02-17T06:30:00.000Z">
-  <span class="day">17</span><span class="month">Feb</span>
-</time>
   </header>
-  <div class="e-content entry-content">
-    
-      <h2 id="1-系统更新与补丁管理"><a href="#1-系统更新与补丁管理" class="headerlink" title="1. 系统更新与补丁管理"></a>1. 系统更新与补丁管理</h2><ul>
-<li><strong>定期更新系统</strong>:</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update &amp;&amp; <span class="built_in">sudo</span> apt upgrade -y    <span class="comment"># Debian/Ubuntu</span></span><br><span class="line"><span class="built_in">sudo</span> yum update -y &amp;&amp; <span class="built_in">sudo</span> yum upgrade -y <span class="comment"># CentOS/RHEL</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><strong>启用自动安全更新</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dpkg-reconfigure -plow unattended-upgrades  <span class="comment"># Debian/Ubuntu</span></span><br><span class="line"><span class="built_in">sudo</span> yum install yum-cron &amp;&amp; systemctl <span class="built_in">enable</span> yum-cron <span class="comment"># CentOS/RHEL</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-用户账户安全"><a href="#2-用户账户安全" class="headerlink" title="2. 用户账户安全"></a>2. 用户账户安全</h2><ul>
-<li><strong>禁用 root 登录</strong>：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> passwd -l root</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>创建 sudo 用户</strong>：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adduser securityadmin</span><br><span class="line">usermod -aG <span class="built_in">sudo</span> securityadmin  <span class="comment"># Debian/Ubuntu</span></span><br><span class="line">usermod -aG wheel securityadmin <span class="comment"># CentOS/RHEL</span></span><br></pre></td></tr></table></figure>
+  <main>
+    <div class="container">
+      <div id="main">
+        <div class="row py-5">
+          <div class="col">
+            <div class="index-wrapper">
+  
+    <article class="row index-post-wrapper">
       
-    
-    
-    <footer class="meta">
+      <div class="col-12 col-md-12 mx-auto post-intro">
+        <div class="post-header ">
+          <a href="/2025/02/17/Linux%E5%8A%A0%E5%9B%BA/" target="_self">
+            <h3>Linux 系统安全加固指南</h3>
+          </a>
+          
+        </div>
+        <div class="description">
+          
+            1. 系统更新与补丁管理
+定期更新系统:
+
+12sudo apt update &amp;&amp; sudo apt upgrade -y    # Debian/Ubuntusudo yum update -y &amp;&amp; sudo yum upgrade -y # CentOS/RHEL
+
+
+启用自动安全更新
+
+12sudo dpkg-reconfigure -plow unatt...
+          
+        </div>
+        <div class="post-footer">
+          <time datetime="2025-02-17 14:30" pubdate>
+            2025-02-17
+          </time>
+          <div>
+             
+            
+          </div>
+        </div>
+      </div>
+    </article>
+  
+    <article class="row index-post-wrapper">
       
+      <div class="col-12 col-md-12 mx-auto post-intro">
+        <div class="post-header ">
+          <a href="/2025/02/17/Kali%20Linux%20%E6%90%AD%E5%BB%BA%20Vulhub%20%E6%BC%8F%E6%B4%9E%E9%9D%B6%E5%9C%BA/" target="_self">
+            <h3>Kali Linux 搭建 Vulhub 漏洞靶场</h3>
+          </a>
+          
+        </div>
+        <div class="description">
+          
+            123456789## 📦 环境准备### 系统要求- Kali Linux 2023.x 或更新版本- 推荐内存 ≥4GB- 硬盘剩余空间 ≥20GB### 安装依赖工具sudo apt update &amp;&amp; sudo apt upgrade -ysudo apt install -y docker.io docker-compose git
+
+配置Docker权限123sudo...
+          
+        </div>
+        <div class="post-footer">
+          <time datetime="2025-02-17 13:36" pubdate>
+            2025-02-17
+          </time>
+          <div>
+             
+            
+          </div>
+        </div>
+      </div>
+    </article>
+  
+    <article class="row index-post-wrapper">
       
+      <div class="col-12 col-md-12 mx-auto post-intro">
+        <div class="post-header ">
+          <a href="/2025/02/16/%E3%80%8A%E6%98%A5%E6%A8%B1%E5%B8%96%E3%80%8B/" target="_self">
+            <h3>《春樱帖》</h3>
+          </a>
+          
+        </div>
+        <div class="description">
+          
+            长江与汉水把天空对折黄鹤翅尖抖落最后一片残冰樱花便煮沸了大街小巷
+二桥的钢索在晨雾里发芽吊车垂下钓竿 打捞锈迹斑斑的汽笛龟山深处传来编钟的旧咳嗽
+热干面的芝麻香漫过堤岸时晾衣绳上滴答着方言的韵脚知音号邮轮推开波浪水纹里浮起张之洞的铸铁厂
+珞珈山正在校对粉色的标点悬铃木抖开潮湿的绿袖子骑电动车的人穿过昙华林后座颠簸着整座江城的倒影
+古琴台新漆未干东湖把天空含在口中那些被口罩捂过的春天正从每粒过早的糯...
+          
+        </div>
+        <div class="post-footer">
+          <time datetime="2025-02-16 20:35" pubdate>
+            2025-02-16
+          </time>
+          <div>
+             
+            
+          </div>
+        </div>
+      </div>
+    </article>
+  
+    <article class="row index-post-wrapper">
       
-    </footer>
-    
-    
-  </div>
+      <div class="col-12 col-md-12 mx-auto post-intro">
+        <div class="post-header ">
+          <a href="/2025/02/16/Ubuntu22.04-DNS/" target="_self">
+            <h3>在Ubuntu 22.04上搭建DNS服务器教程</h3>
+          </a>
+          
+        </div>
+        <div class="description">
+          
+            1. 配置基础设置修改主配置文件1sudo nano /etc/bind/named.conf.options
+
+在 options 块内添加：
+123456listen-on &#123; any; &#125;;allow-query &#123; any; &#125;;forwarders &#123;    8.8.8.8;    8.8.4.4;&#125;;
+
+创建区域文件配置1su...
+          
+        </div>
+        <div class="post-footer">
+          <time datetime="2025-02-16 00:00" pubdate>
+            2025-02-16
+          </time>
+          <div>
+             
+            
+          </div>
+        </div>
+      </div>
+    </article>
   
-</article>
-
-
-  <article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2025/02/17/Kali%20Linux%20%E6%90%AD%E5%BB%BA%20Vulhub%20%E6%BC%8F%E6%B4%9E%E9%9D%B6%E5%9C%BA/">Kali Linux 搭建 Vulhub 漏洞靶场</a></h1>
-  
-
-    <time class="dt-published" datetime="2025-02-17T05:36:00.000Z">
-  <span class="day">17</span><span class="month">Feb</span>
-</time>
-  </header>
-  <div class="e-content entry-content">
-    
-      <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 📦 环境准备</span></span><br><span class="line"><span class="section">### 系统要求</span></span><br><span class="line"><span class="bullet">-</span> Kali Linux 2023.x 或更新版本</span><br><span class="line"><span class="bullet">-</span> 推荐内存 ≥4GB</span><br><span class="line"><span class="bullet">-</span> 硬盘剩余空间 ≥20GB</span><br><span class="line"></span><br><span class="line"><span class="section">### 安装依赖工具</span></span><br><span class="line">sudo apt update &amp;&amp; sudo apt upgrade -y</span><br><span class="line">sudo apt install -y docker.io docker-compose git</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置Docker权限"><a href="#配置Docker权限" class="headerlink" title="配置Docker权限"></a>配置Docker权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now docker</span><br><span class="line"><span class="built_in">sudo</span> usermod -aG docker <span class="variable">$USER</span></span><br><span class="line">newgrp docker  <span class="comment"># 刷新用户组</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="🚀-Vulhub-部署流程"><a href="#🚀-Vulhub-部署流程" class="headerlink" title="🚀 Vulhub 部署流程"></a>🚀 Vulhub 部署流程</h2><h3 id="1-下载漏洞库"><a href="#1-下载漏洞库" class="headerlink" title="1. 下载漏洞库"></a>1. 下载漏洞库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/vulhub/vulhub.git</span><br><span class="line"><span class="built_in">cd</span> vulhub</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-启动靶场环境（以-Tomcat-CVE-2017-12615-为例）"><a href="#2-启动靶场环境（以-Tomcat-CVE-2017-12615-为例）" class="headerlink" title="2. 启动靶场环境（以 Tomcat CVE-2017-12615 为例）"></a>2. 启动靶场环境（以 Tomcat CVE-2017-12615 为例）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> tomcat/CVE-2017-12615</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-验证服务状态"><a href="#3-验证服务状态" class="headerlink" title="3. 验证服务状态"></a>3. 验证服务状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps | grep tomcat</span><br><span class="line"><span class="comment"># 应显示端口映射 8080-&gt;8080</span></span><br></pre></td></tr></table></figure>
+    <article class="row index-post-wrapper">
       
-    
-    
-    <footer class="meta">
+      <div class="col-12 col-md-12 mx-auto post-intro">
+        <div class="post-header ">
+          <a href="/2025/02/16/Ubuntu22.04-Tomcat10/" target="_self">
+            <h3>在Ubuntu 22.04上搭建Tomcat服务器</h3>
+          </a>
+          
+        </div>
+        <div class="description">
+          
+            在本教程中，我们将会介绍如何在Ubuntu系统上安装和配置Tomcat。Tomcat是一个开源的Java Servlet容器，它可以用来部署Java Web应用程序。接下来，我们将一步步地完成Tomcat的安装和配置。
+1. 更新系统在开始安装之前，首先需要更新系统的包管理器和已安装的软件包。打开终端，运行以下命令：12sudo apt updatesudo apt upgrade -y
+
+2. ...
+          
+        </div>
+        <div class="post-footer">
+          <time datetime="2025-02-16 00:00" pubdate>
+            2025-02-16
+          </time>
+          <div>
+             
+            
+          </div>
+        </div>
+      </div>
+    </article>
+  
+    <article class="row index-post-wrapper">
       
+      <div class="col-12 col-md-12 mx-auto post-intro">
+        <div class="post-header ">
+          <a href="/2025/02/16/Ubuntu22.04-Vsftpd/" target="_self">
+            <h3>在 Ubuntu 22.04 手动搭建 vsftpd 服务器</h3>
+          </a>
+          
+        </div>
+        <div class="description">
+          
+            1. 安装 vsftpd 软件包12sudo apt updatesudo apt install vsftpd -y
+
+2. 备份原始配置文件1sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
+
+3. 配置 vsftpd修改主配置文件1sudo nano /etc/vsftpd.conf
+
+保留以下核心参数（其他参数注释或删除）：
+12345678910...
+          
+        </div>
+        <div class="post-footer">
+          <time datetime="2025-02-16 00:00" pubdate>
+            2025-02-16
+          </time>
+          <div>
+             
+            
+          </div>
+        </div>
+      </div>
+    </article>
+  
+    <article class="row index-post-wrapper">
       
+      <div class="col-12 col-md-12 mx-auto post-intro">
+        <div class="post-header ">
+          <a href="/2025/01/19/DHCP-Server/" target="_self">
+            <h3>DHCP服务器的配置</h3>
+          </a>
+          
+        </div>
+        <div class="description">
+          
+            一、服务器介绍动态主机配置协议 DHCP（Dynamic Host Configuration Protocol，动态主机配置协议） 是 RFC 1541（已被 RFC 2131 取代）定义的标准协议，该协议允许服务器向客户端动态分配 IP 地址和配置信息。DHCP协议支持C&#x2F;S（客户端&#x2F;服务器）结构，主要分为两部分：1、DHCP客户端：通常为网络中的PC、打印机等终端设备，使...
+          
+        </div>
+        <div class="post-footer">
+          <time datetime="2025-01-19 00:00" pubdate>
+            2025-01-19
+          </time>
+          <div>
+             
+            
+          </div>
+        </div>
+      </div>
+    </article>
+  
+    <article class="row index-post-wrapper">
       
-    </footer>
-    
-    
-  </div>
-  
-</article>
-
-
-  <article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2025/02/16/%E3%80%8A%E6%98%A5%E6%A8%B1%E5%B8%96%E3%80%8B/">《春樱帖》</a></h1>
-  
-
-    <time class="dt-published" datetime="2025-02-16T12:35:00.000Z">
-  <span class="day">16</span><span class="month">Feb</span>
-</time>
-  </header>
-  <div class="e-content entry-content">
-    
-      <p>长江与汉水把天空对折<br>黄鹤翅尖抖落最后一片残冰<br>樱花便煮沸了大街小巷</p>
-<p>二桥的钢索在晨雾里发芽<br>吊车垂下钓竿 打捞<br>锈迹斑斑的汽笛<br>龟山深处传来编钟的旧咳嗽</p>
-<p>热干面的芝麻香漫过堤岸时<br>晾衣绳上滴答着方言的韵脚<br>知音号邮轮推开波浪<br>水纹里浮起张之洞的铸铁厂</p>
-<p>珞珈山正在校对粉色的标点<br>悬铃木抖开潮湿的绿袖子<br>骑电动车的人穿过昙华林<br>后座颠簸着整座江城的倒影</p>
-<p>古琴台新漆未干<br>东湖把天空含在口中<br>那些被口罩捂过的春天<br>正从每粒过早的糯米里<br>重新长出甜味</p>
-
-      
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-    
-  </div>
-  
-</article>
-
-
-  <article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2025/02/16/Ubuntu22.04-DNS/">在Ubuntu 22.04上搭建DNS服务器教程</a></h1>
-  
-
-    <time class="dt-published" datetime="2025-02-15T16:00:00.000Z">
-  <span class="day">16</span><span class="month">Feb</span>
-</time>
-  </header>
-  <div class="e-content entry-content">
-    
-      <h2 id="1-配置基础设置"><a href="#1-配置基础设置" class="headerlink" title="1. 配置基础设置"></a>1. 配置基础设置</h2><h3 id="修改主配置文件"><a href="#修改主配置文件" class="headerlink" title="修改主配置文件"></a>修改主配置文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/bind/named.conf.options</span><br></pre></td></tr></table></figure>
-
-<p>在 <code>options</code> 块内添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">listen-on &#123; any; &#125;;</span><br><span class="line">allow-query &#123; any; &#125;;</span><br><span class="line">forwarders &#123;</span><br><span class="line">    8.8.8.8;</span><br><span class="line">    8.8.4.4;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建区域文件配置"><a href="#创建区域文件配置" class="headerlink" title="创建区域文件配置"></a>创建区域文件配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/bind/named.conf.local</span><br></pre></td></tr></table></figure>
-
-<p>添加以下内容（根据实际需求修改）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">zone &quot;example.com&quot; &#123;</span><br><span class="line">    type master;</span><br><span class="line">    file &quot;/etc/bind/db.example.com&quot;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">zone &quot;1.168.192.in-addr.arpa&quot; &#123;</span><br><span class="line">    type master;</span><br><span class="line">    file &quot;/etc/bind/db.192&quot;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-创建区域文件"><a href="#2-创建区域文件" class="headerlink" title="2. 创建区域文件"></a>2. 创建区域文件</h2>
-      
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-    
-  </div>
-  
-</article>
-
-
-  <article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2025/02/16/Ubuntu22.04-Tomcat10/">在Ubuntu 22.04上搭建Tomcat服务器</a></h1>
-  
-
-    <time class="dt-published" datetime="2025-02-15T16:00:00.000Z">
-  <span class="day">16</span><span class="month">Feb</span>
-</time>
-  </header>
-  <div class="e-content entry-content">
-    
-      <p><strong>在本教程中，我们将会介绍如何在Ubuntu系统上安装和配置Tomcat。Tomcat是一个开源的Java Servlet容器，它可以用来部署Java Web应用程序。接下来，我们将一步步地完成Tomcat的安装和配置。</strong></p>
-<h2 id="1-更新系统在开始安装之前，首先需要更新系统的包管理器和已安装的软件包。打开终端，运行以下命令："><a href="#1-更新系统在开始安装之前，首先需要更新系统的包管理器和已安装的软件包。打开终端，运行以下命令：" class="headerlink" title="1. 更新系统在开始安装之前，首先需要更新系统的包管理器和已安装的软件包。打开终端，运行以下命令："></a>1. 更新系统在开始安装之前，首先需要更新系统的包管理器和已安装的软件包。打开终端，运行以下命令：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt updatesudo </span><br><span class="line">apt upgrade -y</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-安装Java环境"><a href="#2-安装Java环境" class="headerlink" title="2. 安装Java环境"></a>2. 安装Java环境</h2><p>Tomcat是基于Java的，因此需要在系统中安装Java运行时环境(JRE)或Java开发工具包(JDK)。在Ubuntu中，可以通过以下命令安装OpenJDK：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openjdk-11-jdk -y</span><br></pre></td></tr></table></figure>
-
-<p>安装完成后，使用以下命令确认Java是否安装成功：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-
-<p>如果看到类似如下的输出，说明Java已经正确安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openjdk version &quot;11.0.10&quot; 2021-01-19</span><br><span class="line">OpenJDK Runtime Environment (build 11.0.10+9-post-Ubuntu-0ubuntu1)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 11.0.10+9-post-Ubuntu-0ubuntu1, mixed mode)</span><br></pre></td></tr></table></figure>
-      
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-    
-  </div>
-  
-</article>
-
-
-  <article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2025/02/16/Ubuntu22.04-Vsftpd/">在 Ubuntu 22.04 手动搭建 vsftpd 服务器</a></h1>
-  
-
-    <time class="dt-published" datetime="2025-02-15T16:00:00.000Z">
-  <span class="day">16</span><span class="month">Feb</span>
-</time>
-  </header>
-  <div class="e-content entry-content">
-    
-      <h1 id="1-安装-vsftpd-软件包"><a href="#1-安装-vsftpd-软件包" class="headerlink" title="1. 安装 vsftpd 软件包"></a>1. 安装 vsftpd 软件包</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install vsftpd -y</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-备份原始配置文件"><a href="#2-备份原始配置文件" class="headerlink" title="2. 备份原始配置文件"></a>2. 备份原始配置文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-配置-vsftpd"><a href="#3-配置-vsftpd" class="headerlink" title="3. 配置 vsftpd"></a>3. 配置 vsftpd</h2><h3 id="修改主配置文件"><a href="#修改主配置文件" class="headerlink" title="修改主配置文件"></a>修改主配置文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/vsftpd.conf</span><br></pre></td></tr></table></figure>
-
-<p>保留以下核心参数（其他参数注释或删除）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">listen=YES</span><br><span class="line">listen_ipv6=NO</span><br><span class="line">anonymous_enable=NO</span><br><span class="line">local_enable=YES</span><br><span class="line">write_enable=YES</span><br><span class="line">local_umask=022</span><br><span class="line">dirmessage_enable=YES</span><br><span class="line">use_localtime=YES</span><br><span class="line">xferlog_enable=YES</span><br><span class="line">connect_from_port_20=YES</span><br><span class="line">chroot_local_user=YES</span><br><span class="line">secure_chroot_dir=/var/run/vsftpd/empty</span><br><span class="line">pam_service_name=vsftpd</span><br><span class="line">pasv_enable=YES</span><br><span class="line">pasv_min_port=40000</span><br><span class="line">pasv_max_port=50000</span><br><span class="line">user_sub_token=$USER</span><br><span class="line">local_root=/var/ftp/$USER</span><br><span class="line">userlist_enable=YES</span><br><span class="line">userlist_file=/etc/vsftpd.userlist</span><br><span class="line">userlist_deny=NO</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-创建专用用户"><a href="#4-创建专用用户" class="headerlink" title="4. 创建专用用户"></a>4. 创建专用用户</h2>
-      
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-    
-  </div>
-  
-</article>
-
-
-  <article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2025/01/19/DHCP-Server/">DHCP服务器的配置</a></h1>
-  
-
-    <time class="dt-published" datetime="2025-01-18T16:00:00.000Z">
-  <span class="day">19</span><span class="month">Jan</span>
-</time>
-  </header>
-  <div class="e-content entry-content">
-    
-      <h4 id="一、服务器介绍"><a href="#一、服务器介绍" class="headerlink" title="一、服务器介绍"></a>一、服务器介绍</h4><p>动态主机配置协议 DHCP（Dynamic Host Configuration Protocol，动态主机配置协议） 是 RFC 1541（已被 RFC 2131 取代）定义的标准协议，该协议允许服务器向客户端动态分配 IP 地址和配置信息。<br>DHCP协议支持C&#x2F;S（客户端&#x2F;服务器）结构，主要分为两部分：<br>1、DHCP客户端：通常为网络中的PC、打印机等终端设备，使用从DHCP服务器分配下来的IP信息，包括IP地址、DNS等。<br>2、DHCP服务器：所有的IP网络设定信息都由DHCP服务器集中管理，并处理客户端的DHCP请求。<br>DHCP采用UDP作为传输协议，客户端发送消息到DHCP服务器的的67号端口，服务器返回消息给客户端的68号端口。</p>
-<h4 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h4><table>
-<thead>
-<tr>
-<th>操作系统</th>
-<th>网络模式</th>
-<th>系统网络模式</th>
-<th>IP</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>服务端:openEuler</td>
-<td>主机模式</td>
-<td>Static</td>
-<td>10.203.0.3</td>
-</tr>
-<tr>
-<td>客户端:Windows Server 2016</td>
-<td>主机模式</td>
-<td>DHCP</td>
-<td>DHCP分配</td>
-</tr>
-</tbody></table>
-<h4 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h4><p>1.下载DHCP服务</p>
-<p>2.网络环境的配置</p>
-<p>3.DHCP服务的配置</p>
-<h4 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h4><p>1.1：下载DHCP服务</p>
-      
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-    
-  </div>
-  
-</article>
-
-
-  <article class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <header>
-    
-  
-    <h1 class="title"><a href="/2025/01/16/Hello/">Hello!</a></h1>
-  
-
-    <time class="dt-published" datetime="2025-01-16T14:43:08.000Z">
-  <span class="day">16</span><span class="month">Jan</span>
-</time>
-  </header>
-  <div class="e-content entry-content">
-    
-      <p>您好，我是Luisitn，我是一位网络安全技术、运维技术爱好者， 很高兴来到我的博客，大家一起交流学习，谢谢！</p>
-<p>Hello, I’m Luisitn. I’m an enthusiast of network security technology and operation and maintenance technology. I’m very glad to welcome you to my blog. Let’s communicate and learn from each other. Thank you!</p>
-
-      
-    
-    
-    <footer class="meta">
-      
-      
-      
-    </footer>
-    
-    
-  </div>
-  
-</article>
-
-
-
-<nav id="pagenavi">
-  
-  
-  <div class="clearfix"></div>
-</nav></div>
-  <footer id="footer" class="inner"><div class="social alignright">
-  
-  
-  
-  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
-</div>
-<p>
-  
-  &copy; 2025 John Doe
-  
-</p>
-<div class="clearfix"></div></footer>
-  
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-<script src="/js/jquery.imagesloaded.min.js"></script>
-
-
-<script src="/js/gallery.js"></script>
-
-
-
-
-
-
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-<script>
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
-
-
-<div id="phasebeam">
-  <canvas></canvas>
-  <canvas></canvas>
-  <canvas></canvas>
+      <div class="col-12 col-md-12 mx-auto post-intro">
+        <div class="post-header ">
+          <a href="/2025/01/16/Hello/" target="_self">
+            <h3>Hello!</h3>
+          </a>
+          
+        </div>
+        <div class="description">
+          
+            您好，我是Luisitn，我是一位网络安全技术、运维技术爱好者， 很高兴来到我的博客，大家一起交流学习，谢谢！
+Hello, I’m Luisitn. I’m an enthusiast of network security technology and operation and maintenance technology. I’m very glad to welcome you to m...
+          
+        </div>
+        <div class="post-footer">
+          <time datetime="2025-01-16 22:43" pubdate>
+            2025-01-16
+          </time>
+          <div>
+             
+            
+          </div>
+        </div>
+      </div>
+    </article>
+   
 </div>
 
-<script src="/js/phasebeam.js"></script>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+     
+  <button id="scroll-to-top" class="btn btn-top" aria-label="Scroll To Top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+ 
+
+  </main>
+
+  <div class="footer-wrapper">
+  <div class="left-content"></div>
+  <div class="right-content">
+    <div>Copyright &copy;2025</div>
+    <div>Powered By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> - Theme <a target="_blank" rel="noopener" href="https://github.com/thomasyu929/hexo-theme-peomas">Peomas</a></div>
+  </div>
+</div>
+
+  <div id="searchModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Search</h5>
+        <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-wrapper">
+          <i class="fas fa-search"></i>
+          <input id="search" class="search-input" type="text" placeholder="Input content to search..." />
+        </div>
+        <ul id="result" class="list-group result-wrapper">
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.min.js"></script>
+
+
+<script src="/js/prism.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css">
+
+  
+<script src="/js/nprogress.js"></script>
+
+
+
+ 
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
+
+ 
+
+
+<script src="/js/event.js"></script>
+
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/plugin.js"></script>
+
+
 
 </body>
+
 </html>
