@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://luistin.github.io/2025/02/19/2025-2-19%E8%AE%B0/</loc>
+    
+    <lastmod>2025-02-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://luistin.github.io/2025/02/17/Linux%E5%8A%A0%E5%9B%BA/</loc>
     
     <lastmod>2025-02-17</lastmod>
@@ -85,7 +94,7 @@
 
   <url>
     <loc>https://luistin.github.io/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
